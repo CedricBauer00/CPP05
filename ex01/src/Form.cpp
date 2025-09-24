@@ -1,4 +1,5 @@
 #include "../inc/Form.hpp"
+#include "../inc/Bureaucrat.hpp"
 
 Form::Form() : _name("Defualt"),  _isSigned(false), _gradeToSign(150), _gradeToExecute(150)
 {
@@ -8,16 +9,24 @@ Form::Form() : _name("Defualt"),  _isSigned(false), _gradeToSign(150), _gradeToE
 Form::Form( const std::string name, int gradeToSign, int gradeToExecute)
     : _name(name), _isSigned(false), _gradeToSign(gradeToSign), _gradeToExecute(gradeToExecute) 
 {
-    std::cout << "\033[92mParametric form constructor has been called!\033[0m" << std::endl;
+    std::cout << "\033[92mParametric form constructor: "
+    << name
+    << ", form; "
+    << " grade to sign: "
+    << gradeToSign
+    << "; grade to execute: "
+    << gradeToExecute
+    << ". \033[0m"
+    << std::endl;
     if (_gradeToSign > 150)
-        throw (GradeTooLowException());
+        throw ( GradeTooLowException() );
     if (_gradeToSign < 1)
-        throw (GradeTooHighException());
+        throw ( GradeTooHighException() );
     
     if (_gradeToExecute > 150)
-        throw (GradeTooLowException());
+        throw ( GradeTooLowException() );
     if (_gradeToExecute < 1)
-        throw (GradeTooHighException());
+        throw ( GradeTooHighException() );
 }
 
 Form::Form( const Form& copy ) : _name( copy._name ), _isSigned( copy._isSigned ), _gradeToSign( copy._gradeToSign ), _gradeToExecute( copy._gradeToExecute )
@@ -46,14 +55,14 @@ std::ostream& operator<<( std::ostream& os, const Form& form )
         << "; _gradeToSign = " << form.getGradeToSign()
         << "; _gradeToExecute = " << form.getGradeToExecute()
         << "; isSigned = " << form.getIsSigned()
-        << ";\033[0m" << std::endl;
+        << ";\033[0m";
     return ( os );
 }
 
 void    Form::beSigned( const Bureaucrat& bureaucrat )
 {
-    if (bureaucrat.getGrade() > _gradeToSign )
-        throw (GradeTooLowException());
+    if ( bureaucrat.getGrade() > _gradeToSign )
+        throw ( GradeTooLowException() );
     _isSigned = true;
 }
 
@@ -64,25 +73,25 @@ const char* Form::GradeTooHighException::what() const throw()
 
 const char* Form::GradeTooLowException::what() const throw()
 {
-    return ("\033[33mGrade is too low. Grade must be between 1 and 150.\033[0m");
+    return ("\033[33mGrade is too low.\033[0m");
 }
 
 std::string Form::getFormName() const
 {
-    return (_name);
+    return ( _name );
 }
 
 bool Form::getIsSigned() const
 {
-    return (_isSigned);
+    return ( _isSigned );
 }
 
 int Form::getGradeToSign() const
 {
-    return (_gradeToSign);
+    return ( _gradeToSign );
 }
 
 int Form::getGradeToExecute() const
 {
-    return (_gradeToExecute);
+    return ( _gradeToExecute );
 }

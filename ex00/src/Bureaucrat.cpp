@@ -8,10 +8,10 @@ Bureaucrat::Bureaucrat() : _name("Unknown"), _grade(150)
 Bureaucrat::Bureaucrat( const std::string name, int grade ) : _name(name), _grade(grade)
 {
 	std::cout << "\033[92mBureaucrat constructor has been called!\033[0m" << std::endl;
-	if (_grade < 1)
-		throw (GradeTooHighException());
+	if (_grade  < 1)
+		throw ( GradeTooHighException() );
 	if (_grade > 150)
-		throw (GradeTooLowException());
+		throw ( GradeTooLowException() );
 }
 
 Bureaucrat::Bureaucrat( const Bureaucrat& copy ) : _name( copy._name ), _grade( copy._grade )
@@ -40,12 +40,12 @@ std::ostream& operator<<( std::ostream& os, const Bureaucrat& bureaucrat )
 
 std::string Bureaucrat::getName() const
 {
-	return (_name);
+	return ( _name );
 }
 
 int Bureaucrat::getGrade() const
 {
-	return (_grade);
+	return ( _grade );
 }
 
 void	Bureaucrat::incrementGrade()

@@ -1,4 +1,5 @@
 #include "../inc/Bureaucrat.hpp"
+#include "../inc/Form.hpp"
 
 Bureaucrat::Bureaucrat() : _name("Unknown"), _grade(150)
 {
@@ -7,7 +8,12 @@ Bureaucrat::Bureaucrat() : _name("Unknown"), _grade(150)
 
 Bureaucrat::Bureaucrat( const std::string name, int grade ) : _name(name), _grade(grade)
 {
-	std::cout << "\033[92mBureaucrat constructor has been called!\033[0m" << std::endl;
+	std::cout << "\033[92mParametric Bureaucrat constructor. "
+	<< name
+	<< ", bureaucrat; Grade: "
+	<< grade
+	<< ".\033[0m"
+	<< std::endl;
 	if (_grade < 1)
 		throw (GradeTooHighException());
 	if (_grade > 150)
@@ -32,6 +38,37 @@ Bureaucrat::~Bureaucrat()
 	std::cout << "\033[31mBureaucrat destructor has been called!\033[0m" << std::endl;
 }
 
+void	Bureaucrat::signForm( Form& form )
+{
+	try
+	{
+		form.beSigned( *this );
+
+		std::cout 	<< "\033[33m"
+			<< this->getName()
+			<< "\033[0m"
+			<< " signed "
+			<< form.getFormName()
+			<< "! Signing requirement was "
+			<< form.getGradeToSign()
+			<< ". Grade to execute would be: "
+			<< form.getGradeToExecute()
+			<< "."
+			<< std::endl;
+	}
+	catch ( Form::GradeTooLowException &e )
+	{
+		std::cout	<< "\033[33m"
+					<< this->getName()
+					<< "\033[0m"
+					<< " couldn't sign "
+					<< form.getFormName()
+					<< "! "
+					<< e.what()
+					<< std::endl;
+	}
+}
+
 std::ostream& operator<<( std::ostream& os, const Bureaucrat& bureaucrat )
 {
 	os << "\033[36m" << bureaucrat.getName() << ", bureaucrat grade " << bureaucrat.getGrade() << "!\033[0m";
@@ -40,12 +77,12 @@ std::ostream& operator<<( std::ostream& os, const Bureaucrat& bureaucrat )
 
 std::string Bureaucrat::getName() const
 {
-	return (_name);
+	return ( _name );
 }
 
 int Bureaucrat::getGrade() const
 {
-	return (_grade);
+	return ( _grade );
 }
 
 void	Bureaucrat::incrementGrade()
