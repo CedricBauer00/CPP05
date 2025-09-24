@@ -4,9 +4,14 @@ int main()
 {
     try
     {
-        Bureaucrat a("Albrecht", 0);
-        Bureaucrat b("Jens", 200);
+        Bureaucrat defauld;
+        Bureaucrat a("Albrecht", 2);
+        Bureaucrat b("Jens", 149);
+        std::cout << defauld << std::endl;
+        std::cout << a << std::endl;
+        std::cout << b << std::endl;
         a.incrementGrade();
+        std::cout << a << std::endl;
     }
     catch (Bureaucrat::GradeTooHighException &e)
     {
@@ -15,9 +20,5 @@ int main()
     catch (Bureaucrat::GradeTooLowException &e)
     {
         std::cout << e.what() << std::endl;
-    }
-    if (!a.validateGrade())
-    {
-        std::cout << "Bureaucrat a has an invalid grade." << std::endl;
     }
 }

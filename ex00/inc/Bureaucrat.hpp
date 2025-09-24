@@ -5,14 +5,18 @@
 
 class Bureaucrat
 {
-private:
-	const std::string	_name;
-	int					_grade;
-public:
-	Bureaucrat( const std::string name, int grade );
-	~Bureaucrat();
-	std::string	getName();
-	int			getgrade();
+	private:
+		const std::string	_name;
+		int					_grade;
+	public:
+		Bureaucrat();
+		Bureaucrat( const std::string name, int grade );
+		Bureaucrat( const Bureaucrat& copy );
+		Bureaucrat& operator=( const Bureaucrat& copy );
+		~Bureaucrat();
+
+	std::string	getName() const;
+	int			getGrade() const;
 	void		incrementGrade(); //-1
 	void		decrementGrade(); //+1
 
@@ -29,3 +33,4 @@ public:
 	};
 };
  //what implement (retrun val???)
+std::ostream& operator<<( std::ostream& os, const Bureaucrat& bureaucrat );
