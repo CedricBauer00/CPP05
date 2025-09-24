@@ -19,7 +19,7 @@ Bureaucrat::Bureaucrat( const Bureaucrat& copy ) : _name( copy._name ), _grade( 
 	std::cout << "\033[34mBureaucrat copy constructor has been called!\033[0m" << std::endl;
 }
 
-Bureaucrat& Bureaucrat::operator= ( const Bureaucrat& copy )
+Bureaucrat& Bureaucrat::operator=( const Bureaucrat& copy )
 {
 	std::cout << "\033[94mBureaucrat assingment operator has been called!\033[0m" << std::endl;
 	if ( this != &copy )

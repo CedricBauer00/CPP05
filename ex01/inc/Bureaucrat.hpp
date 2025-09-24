@@ -3,6 +3,8 @@
 #include <string>
 #include <iostream>
 
+#include "../inc/Form.hpp"
+
 class Bureaucrat
 {
 	private:
@@ -19,6 +21,7 @@ class Bureaucrat
 	int			getGrade() const;
 	void		incrementGrade(); //-1
 	void		decrementGrade(); //+1
+	void		signForm( Form& form ); //circular dependency???
 
 	class GradeTooHighException : public std::exception
 	{
