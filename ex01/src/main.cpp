@@ -74,7 +74,9 @@ int main()
         std::cout << "-------After signing--------" << std::endl;
         std::cout << "Original Ticket: " << Ticket << std::endl;
         assignmentForm = Ticket;
-        std::cout << "AssingmentTicket: " << assignmentForm << std::endl;
+        std::cout << "AssignmentTicket: " << assignmentForm << std::endl;
+        Form secondCopy(Ticket);
+        std::cout << "SecondCopy:" << secondCopy << std::endl;
     }
     catch(const std::exception& e)
     {
