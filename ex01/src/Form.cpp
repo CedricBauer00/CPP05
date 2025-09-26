@@ -46,7 +46,7 @@ Form& Form::operator=( const Form& copy )
 
 Form::~Form()
 {
-    std::cout << "\033[31mDestructor has been called!\033[0m" << std::endl;
+    std::cout << "\033[31mForm destructor has been called!\033[0m" << std::endl;
 }
 
 std::ostream& operator<<( std::ostream& os, const Form& form )
