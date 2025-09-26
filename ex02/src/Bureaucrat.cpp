@@ -115,12 +115,17 @@ void	Bureaucrat::executeForm( AForm const & form ) const
 {
 	try
 	{
+		form.execute( *this );
 		// execute specific AAForm class instance - form
-		std::cout << this << " executed " << form << std::endl;
+		std::cout << this->_name << " executed " << form.getAFormName() << std::endl;
 	}
 	catch( const std::exception& e )
 	{
-		std::cerr << e.what() << '\n';
+		std::cout << this->_name << " couldn't execute "
+					<< form.getAFormName()
+					<< " because " 
+					<< e.what()
+					<< std::endl;
 	}
 	
 }

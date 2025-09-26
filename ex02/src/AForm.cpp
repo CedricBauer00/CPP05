@@ -76,6 +76,11 @@ const char* AForm::GradeTooLowException::what() const throw()
     return ("\033[33mGrade is too low.\033[0m");
 }
 
+const char* AForm::FormNotSignedException::what() const throw()
+{
+    return ("\033[31mForm not signed!\033[0m");
+}
+
 std::string AForm::getAFormName() const
 {
     return ( _name );
