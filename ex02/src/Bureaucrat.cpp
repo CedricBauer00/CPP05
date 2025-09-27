@@ -46,10 +46,9 @@ void	Bureaucrat::signForm( AForm& form )
 
 		std::cout 	<< "\033[33m"
 			<< this->getName()
-			<< "\033[0m"
 			<< " signed "
 			<< form.getAFormName()
-			<< "! Signing requirement was "
+			<< "!\033[0m Signing requirement was "
 			<< form.getGradeToSign()
 			<< ". Grade to execute would be: "
 			<< form.getGradeToExecute()

@@ -46,7 +46,10 @@ AForm& AForm::operator=( const AForm& copy )
 
 AForm::~AForm()
 {
-    std::cout << "\033[31mAForm destructor has been called!\033[0m" << std::endl;
+    std::cout << "\033[31mAForm destructor! Destructed: \033[38;5;202m"
+                << this->getAFormName()
+                << "\033[0m!"
+                << std::endl;
 }
 
 std::ostream& operator<<( std::ostream& os, const AForm& form )

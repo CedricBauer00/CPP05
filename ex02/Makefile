@@ -2,7 +2,8 @@ NAME = Bureaucrat
 SRC = src/main.cpp \
 		src/Bureaucrat.cpp \
 		src/AForm.cpp \
-		src/ShrubberyCreationForm.cpp
+		src/ShrubberyCreationForm.cpp \
+		src/RobotomyRequestForm.cpp
 
 OBJ := $(SRC:%.cpp=%.o)
 
