@@ -3,7 +3,8 @@ SRC = src/main.cpp \
 		src/Bureaucrat.cpp \
 		src/AForm.cpp \
 		src/ShrubberyCreationForm.cpp \
-		src/RobotomyRequestForm.cpp
+		src/RobotomyRequestForm.cpp \
+		src/PresidentialPardonForm.cpp
 
 OBJ := $(SRC:%.cpp=%.o)
 
@@ -12,6 +13,7 @@ CXXFLAGS= -Wall -Wextra -Werror -std=c++17
 
 define loading_bar
 	@printf "Compiling: ["
+Bureaucrat destructor has been called!
 	@for i in {1..20}; do \
 		printf " "; \
 	done; \

@@ -21,7 +21,7 @@ RobotomyRequestForm::RobotomyRequestForm( const RobotomyRequestForm& copy )
 
 RobotomyRequestForm& RobotomyRequestForm::operator=( const RobotomyRequestForm& copy )
 {
-    std::cout << "Assginment robotomy constructor!" << std::endl;
+    std::cout << "Assignment robotomy constructor!" << std::endl;
     if ( this != &copy )
     {
         AForm::operator=( copy );

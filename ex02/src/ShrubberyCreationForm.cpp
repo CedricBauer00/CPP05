@@ -21,7 +21,7 @@ ShrubberyCreationForm::ShrubberyCreationForm( const ShrubberyCreationForm& copy 
 
 ShrubberyCreationForm& ShrubberyCreationForm::operator=( const ShrubberyCreationForm& copy )
 {
-    std::cout << "Assginment shrubbery operator called!" << std::endl;
+    std::cout << "Assignment shrubbery operator called!" << std::endl;
     if ( this != &copy )
     {
         AForm::operator=(copy);
@@ -51,7 +51,7 @@ void    ShrubberyCreationForm::execute( const Bureaucrat& executor ) const
     
     std::string fileName = _target + "_shrubbery";
     std::ofstream file(fileName);
-    file << "         /\\         " << '\n'
+    file << "         /\\         " << '\n' //<< <- "Stream insertion Operator"
          << "        /  \\        " << '\n'
          << "       /    \\       " << '\n'
          << "      /______\\      " << '\n'

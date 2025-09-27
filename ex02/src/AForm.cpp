@@ -1,7 +1,7 @@
 #include "../inc/AForm.hpp"
 #include "../inc/Bureaucrat.hpp"
 
-AForm::AForm() : _name("Defualt"),  _isSigned(false), _gradeToSign(150), _gradeToExecute(150)
+AForm::AForm() : _name("Default"),  _isSigned(false), _gradeToSign(150), _gradeToExecute(150)
 {
     std::cout <<"\033[32mDefault AForm has been constructed!\033[0m" << std::endl;
 }
