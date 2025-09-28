@@ -1,4 +1,8 @@
 #include "../inc/Intern.hpp"
+#include "../inc/AForm.hpp"
+#include "../inc/ShrubberyCreationForm.hpp"
+#include "../inc/RobotomyRequestForm.hpp"
+#include "../inc/PresidentialPardonForm.hpp"
 
 Intern::Intern()
 {
@@ -7,12 +11,13 @@ Intern::Intern()
 
 Intern::Intern( const Intern& copy )
 {
+    ( void )copy;
     std::cout << "Copy Intern constructor!" << std::endl;
 }
 
 Intern& Intern::operator=( const Intern& copy)
 {
-    std::cout << "Assignment Intenr operator!" << std::endl;
+    std::cout << "Assignment Intern operator!" << std::endl;
     if ( this != &copy ) {}
     return ( *this );
 }
@@ -45,20 +50,20 @@ AForm* Intern::makeForm( const std::string formName, const std::string target )
 
     // ReturnType   ( *pointerName )( Parameter1, Parameter2 ) = &functionName;
     AForm*  ( *FormFunctions[] )( const std::string& ) = { createShrubbery, createRobotomy, createPresidential };
-    AForm   *returnForm = nullptr;
 
     for ( int i = 0; i < 3; i++)
     {
-        std::cout << "Intern creates "
-                    << formName
-                    << std::endl;
         if ( formNameString[i] == formName ) // if formName (input from functino call) matches one of the 3 elements of the string
-            returnForm = FormFunctions[i]( target ); //call the certain function with the according function pointer index
-            return ( returnForm );
+        {
+            std::cout << "Intern creates "
+                        << formName
+                        << std::endl;
+            return ( FormFunctions[i]( target ) ); //call the certain function with the according function pointer index
+        }    
     }
-    std::cout << "Error: Unkown form name '"
+    std::cout << "\033[38;5;196mError:\033[0m Unknown form name '"
                 << formName
                 << "'"
                 << std::endl;
-    return ( returnForm );
+    return ( nullptr );
 }

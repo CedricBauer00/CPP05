@@ -3,6 +3,7 @@
 #include "../inc/ShrubberyCreationForm.hpp"
 #include "../inc/RobotomyRequestForm.hpp"
 #include "../inc/PresidentialPardonForm.hpp"
+#include "../inc/Intern.hpp"
 
 int main()
 {
@@ -78,5 +79,66 @@ int main()
     {
         std::cout << e.what() << std::endl;
     }
+
+    std::cout << "\n\033[36m----------- Intern Tests -----------\n\033[0m" << std::endl;
+
+    try
+    {    
+        Bureaucrat  Alfred( "Alfred", 5 );
+        std::cout << "\n\033[36m--- Intern shrub Tests ---\n\033[0m" << std::endl;
+
+        Intern  intern;
+        Intern  copy( intern );
+
+        AForm* form1 = copy.makeForm( "shrubbery creation", "Garden" );
+        if ( form1 )
+        {
+            std::cout << "✅ Shrubbery form created successfully! \033[36m~ main\033[0m" << std::endl;
+            Alfred.signForm( *form1 );
+            Alfred.executeForm( *form1 );
+            delete ( form1 );
+        }
+
+        std::cout << "\n\033[36m--- Intern rob Tests ---\n\033[0m" << std::endl;
+
+
+        AForm* form2 = intern.makeForm( "robotomy request", "Bender" );
+        if ( form2 )
+        {
+            std::cout << "✅ Robotomy form created successfully! \033[36m~ main\033[0m" << std::endl;
+            Alfred.signForm( *form2 );
+            Alfred.executeForm( *form2 );
+            delete ( form2 );
+        }
+
+        std::cout << "\n\033[36m--- Intern pres Tests ---\n\033[0m" << std::endl;
+
+
+        AForm* form3 = intern.makeForm( "presidential pardon", "Fool" );
+        if ( form3 )
+        {
+            std::cout << "✅ Presidential form created successfully! \033[36m~ main\033[0m" << std::endl;
+            Alfred.signForm( *form3 );
+            Alfred.executeForm( *form3 );
+            delete ( form3 );
+        }
+
+        std::cout << "\n\033[36m--- Intern Invalid Form Tests ---\n\033[0m" << std::endl;
+
+
+        AForm* form4 = intern.makeForm( "invalid Form", "Target" );
+        if ( !form4 )
+            std::cout << "✅ Invalid form correctly returned nullptr! \033[36m~ main\033[0m" << std::endl;
+        
+    }
+    catch( Bureaucrat::GradeTooHighException& e )
+    {
+        std::cerr << e.what() << std::endl;
+    }
+    catch( Bureaucrat::GradeTooLowException& e )
+    {
+        std::cerr << e.what() << std::endl;
+    }
+    
     return (0);
 }
