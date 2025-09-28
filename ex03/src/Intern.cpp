@@ -45,5 +45,20 @@ AForm* Intern::makeForm( const std::string formName, const std::string target )
 
     // ReturnType   ( *pointerName )( Parameter1, Parameter2 ) = &functionName;
     AForm*  ( *FormFunctions[] )( const std::string& ) = { createShrubbery, createRobotomy, createPresidential };
+    AForm   *returnForm = nullptr;
 
+    for ( int i = 0; i < 3; i++)
+    {
+        std::cout << "Intern creates "
+                    << formName
+                    << std::endl;
+        if ( formNameString[i] == formName ) // if formName (input from functino call) matches one of the 3 elements of the string
+            returnForm = FormFunctions[i]( target ); //call the certain function with the according function pointer index
+            return ( returnForm );
+    }
+    std::cout << "Error: Unkown form name '"
+                << formName
+                << "'"
+                << std::endl;
+    return ( returnForm );
 }
