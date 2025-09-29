@@ -60,8 +60,8 @@ int main()
     try
     {
         Bureaucrat              President( "President", 5 );
-        PresidentialPardonForm  Fool;
-        PresidentialPardonForm  copy;
+        PresidentialPardonForm  Fool( "The Fool" );
+        PresidentialPardonForm  copy( Fool );
 
         std::cout << std::endl;
         std::cout << copy << std::endl;

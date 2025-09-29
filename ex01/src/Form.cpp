@@ -18,14 +18,15 @@ Form::Form( const std::string name, int gradeToSign, int gradeToExecute)
     << gradeToExecute
     << ". \033[0m"
     << std::endl;
-    if (_gradeToSign > 150)
+   
+    if ( _gradeToSign > 150 )
         throw ( GradeTooLowException() );
-    if (_gradeToSign < 1)
+    if ( _gradeToSign < 1 )
         throw ( GradeTooHighException() );
     
-    if (_gradeToExecute > 150)
+    if ( _gradeToExecute > 150 )
         throw ( GradeTooLowException() );
-    if (_gradeToExecute < 1)
+    if ( _gradeToExecute < 1 )
         throw ( GradeTooHighException() );
 }
 

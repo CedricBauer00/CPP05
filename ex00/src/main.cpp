@@ -7,9 +7,11 @@ int main()
         Bureaucrat defauld;
         Bureaucrat a("Albrecht", 2);
         Bureaucrat b("Jens", 148);
+     
         std::cout << defauld << std::endl;
         std::cout << a << std::endl;
         std::cout << b << std::endl;
+     
         a.incrementGrade();
         b.decrementGrade();
         b.decrementGrade();
@@ -27,6 +29,7 @@ int main()
     try
     {
         std::cout << "\n--- Testing copy and assignment operator ---\n" << std::endl;
+     
         Bureaucrat doc("Doc", 30);
         Bureaucrat copyDoc(doc);
         Bureaucrat assignemnt("AssignDoc", 150);

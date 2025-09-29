@@ -5,32 +5,39 @@ int main()
 {
     try
     {
-        Bureaucrat  alfred("Alfred", 100);
-        Form        contract( "Contract", 100, 50);
+        std::cout << "\n--- Testing valid case ---\n" << std::endl;
+
+        Bureaucrat  alfred( "Alfred", 100 );
+        Form        contract( "Contract", 100, 50 );
+        
         std::cout   << "Before signing: "
                     << contract 
                     << std::endl;
+        
         alfred.signForm( contract );
+        
         std::cout   << "After signing: "
                     << contract 
                     << std::endl;
     }
-    catch ( Bureaucrat::GradeTooHighException &e ) //catch( std::exception &e )???
+    catch(const std::exception& e)
     {
-        std::cout << e.what() << std::endl;
+        std::cout << e.what() << '\n';
     }
-    catch ( Bureaucrat::GradeTooLowException &e )
-    {
-        std::cout << e.what() << std::endl;
-    }
+    
     try
     {
-        Bureaucrat  intern( "Intern", 100);
+        std::cout << "\n--- Testing exception ---\n" << std::endl;
+
+        Bureaucrat  intern( "Intern", 100 );
         Form        confidentialinfo( "confidentialinfo", 5, 1 );
+        
         std::cout   << "Before signing: "
                     << confidentialinfo
                     << std::endl;
+        
         intern.signForm( confidentialinfo );
+        
         std::cout   << "After signing: "
                     << confidentialinfo
                     << std::endl;
@@ -39,6 +46,7 @@ int main()
     {
         std::cout << e.what() << '\n';
     }
+   
     try
     {
         std::cout << "\n--- Testing copy and assignment operator ---\n" << std::endl;
@@ -55,6 +63,7 @@ int main()
     {
         std::cout << e.what() << std::endl;
     }
+   
     try
     {
         std::cout << "\n--- Testing Form copy and assignment operator ---\n" << std::endl;
